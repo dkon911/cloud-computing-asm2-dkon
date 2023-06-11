@@ -1,11 +1,19 @@
-class SiteController{
+const Course = require('../models/Course');
 
+class SiteController {
     //[GET] /
-    index(req, res){
-        res.render('home');
+    async index(req, res, next) {
+        await Course.find({})
+        .then(courses => res.render('home'), {
+            courses
+        })
+        .catch(next);
+
+
+        // res.render('home');
     }
     //[GET] /search
-    search(req, res){
+    search(req, res) {
         res.render('search');
     }
 }
