@@ -26,4 +26,5 @@ app.get('/search', (req, res) => {
     res.render('search');
 })  
 
+app.use;
 app.listen(port,()=>console.log(`listening on port`+port));
